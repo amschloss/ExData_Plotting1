@@ -16,6 +16,7 @@ fulltab <- read.table(fullfilename, header=T, sep=";", na.strings = "?", colClas
 
 # Subset and reformat the Date column to actually be of Date type
 spectab <- subset(fulltab, Date %in% c("1/2/2007", "2/2/2007"))
+spectab <- rbind(spectab, subset(fulltab, Date == "3/2/2007" & Time == "00:00:00")) # make sure we get Saturday at the end of our time plots
 spectab$Date <- strptime(spectab$Date, "%d/%m/%Y")
 
 # Write the cleaned subset out
