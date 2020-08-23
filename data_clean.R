@@ -20,7 +20,7 @@ spectab <- rbind(spectab, subset(fulltab, Date == "3/2/2007" & Time == "00:00:00
 
 # Make the date/time columns actually a proper datetime
 formDate <- strptime(spectab$Date, "%d/%m/%Y")
-spectab$datetime <- as_datetime(paste(formDate, spectab$Time))
+spectab$datetime <- paste(formDate, spectab$Time)
 spectab <- spectab[, c(10, 3:9)]
 
 # Write the cleaned subset out
